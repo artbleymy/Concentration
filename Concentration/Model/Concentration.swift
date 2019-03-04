@@ -10,15 +10,36 @@ import Foundation
 
 class Concentration {
     
-    var cards = [Card]()
+    private(set) var cards = [Card]()
     
-    var indexOfOneAndOnlyFacedUpCard: Int?
+    private var indexOfOneAndOnlyFacedUpCard: Int? {
+        get {
+            var foundIndex: Int?
+            for index in cards.indices{
+                if cards[index].isFaceUp{
+                    if foundIndex == nil {
+                        foundIndex = index
+                    } else {
+                        return nil
+                    }
+                }
+            }
+            return foundIndex
+        }
+        set {
+            for index in cards.indices {
+                cards[index].isFaceUp = (index == newValue)
+            }
+        }
+    }
     
-    var flipCount: Int
+    var flipCount: Int = 0
     
-    var score: Int
+    private(set) var score: Int = 0
     
     func chooseCard(at index: Int){
+        
+        assert(cards.indices.contains(index),"Concentration.chooseCard(as:\(index)):chosen index not in the card")
         if !cards[index].isMatched {
             if let matchIndex = indexOfOneAndOnlyFacedUpCard, matchIndex != index {
                 //check if cards match
@@ -30,23 +51,17 @@ class Concentration {
                     score -= 1
                 }
                 cards[index].isFaceUp = true
-                indexOfOneAndOnlyFacedUpCard = nil
             } else {
                 //no cards or 2 cards face up
-                for flipDownIndex in cards.indices {
-                    cards[flipDownIndex].isFaceUp = false
-                }
-                cards[index].isFaceUp = true
                 indexOfOneAndOnlyFacedUpCard = index
-                
             }
         }
     }
     
     init(numberOfPairsOfCards: Int) {
         
-        flipCount = 0
-        score = 0
+        
+        assert(numberOfPairsOfCards > 0, "Concentration.chooseCard(as:\(numberOfPairsOfCards)):you must have at least one pair of cards")
         
         for _ in 0..<numberOfPairsOfCards{
             let card = Card()
