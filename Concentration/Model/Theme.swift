@@ -9,10 +9,10 @@
 import Foundation
 
 struct Theme {
-    var emojiTheme : [String]
+    var emojiTheme : String
     var themeTitle : String
     
-    init(for nameTheme: String, include emojis: [String]) {
+    init(for nameTheme: String, include emojis: String) {
         self.themeTitle = nameTheme
         self.emojiTheme = emojis
     }
