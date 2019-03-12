@@ -17,6 +17,7 @@
 		85315489222D261A009E522A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85315488222D261A009E522A /* Card.swift */; };
 		8531548B222D48D2009E522A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8531548A222D48D2009E522A /* Theme.swift */; };
 		856F30542236426700AC8C77 /* ConcentrationThemeChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856F30532236426700AC8C77 /* ConcentrationThemeChooserViewController.swift */; };
+		85EA3BC42238206600A20D6B /* VCLLoggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA3BC32238206600A20D6B /* VCLLoggingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		85315488222D261A009E522A /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		8531548A222D48D2009E522A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		856F30532236426700AC8C77 /* ConcentrationThemeChooserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationThemeChooserViewController.swift; sourceTree = "<group>"; };
+		85EA3BC32238206600A20D6B /* VCLLoggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCLLoggingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				85315471222D0F63009E522A /* AppDelegate.swift */,
 				85315473222D0F63009E522A /* ConcentrationViewController.swift */,
 				856F30532236426700AC8C77 /* ConcentrationThemeChooserViewController.swift */,
+				85EA3BC32238206600A20D6B /* VCLLoggingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				85315487222D2562009E522A /* Concentration.swift in Sources */,
 				856F30542236426700AC8C77 /* ConcentrationThemeChooserViewController.swift in Sources */,
 				85315489222D261A009E522A /* Card.swift in Sources */,
+				85EA3BC42238206600A20D6B /* VCLLoggingViewController.swift in Sources */,
 				8531548B222D48D2009E522A /* Theme.swift in Sources */,
 				8531547A222D0F63009E522A /* Concentration.xcdatamodeld in Sources */,
 				85315472222D0F63009E522A /* AppDelegate.swift in Sources */,

@@ -8,8 +8,11 @@
 
 import UIKit
 
-class ConcentrationThemeChooserViewController: UIViewController, UISplitViewControllerDelegate {
+class ConcentrationThemeChooserViewController: VCLLoggingViewController, UISplitViewControllerDelegate {
 
+    override var vclLoggingName: String {
+        return "Theme chooser"
+    }
     
     let themes = [
         "Bodyparts": "👅👁👍👄👂🧠",
@@ -21,8 +24,11 @@ class ConcentrationThemeChooserViewController: UIViewController, UISplitViewCont
     ]
     
     override func awakeFromNib() {
+        super.awakeFromNib()
         splitViewController?.delegate = self
     }
+    
+    
     //if we want to show the first view controller in split view when in iPhone mode
     func splitViewController(_ splitViewController: UISplitViewController,
                              collapseSecondary secondaryViewController: UIViewController,
