@@ -17,12 +17,21 @@ class ConcentrationViewController: /*UIViewController*/VCLLoggingViewController 
     private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
     
     var numberOfPairsOfCards: Int {
-            return (cardButtons.count + 1) / 2
+            return (visibleCardButtons.count + 1) / 2
     }
-    private var currentTheme: String = "😈👺🎃👿☠️👽🤖"
+    private var currentTheme: String = "😈👺🎃👿☠️👽🤖🤡💩😺"
     private var emoji = [Card:String]()
     
     @IBOutlet private var cardButtons: [UIButton]!
+    
+    private var visibleCardButtons: [UIButton]! {
+        return cardButtons?.filter{!$0.superview!.isHidden}
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        updateViewFromModel()
+    }
     
     @IBOutlet private weak var scoreLabel: UILabel!
     @IBOutlet private weak var flipLabel: UILabel! {
@@ -42,7 +51,7 @@ class ConcentrationViewController: /*UIViewController*/VCLLoggingViewController 
 
     @IBAction private func touchCard(_ sender: UIButton) {
         game.flipCount += 1
-        if let cardNumber = cardButtons.firstIndex(of: sender){
+        if let cardNumber = visibleCardButtons.firstIndex(of: sender){
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
             
@@ -56,16 +65,16 @@ class ConcentrationViewController: /*UIViewController*/VCLLoggingViewController 
     
     //MARK: - Start new game
     private func startGame() {
-        game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2 )
+        game = Concentration(numberOfPairsOfCards: (visibleCardButtons.count + 1) / 2 )
         updateViewFromModel()
     }
     
     
     // MARK: - Update view
     private func updateViewFromModel() {
-        if cardButtons != nil {
-            for index in cardButtons.indices {
-                let button = cardButtons[index]
+        if visibleCardButtons != nil {
+            for index in visibleCardButtons.indices {
+                let button = visibleCardButtons[index]
                 let card = game.cards[index]
                 if card.isFaceUp {
                     button.setTitle(emoji(for: card), for: .normal)
